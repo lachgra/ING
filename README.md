@@ -44,6 +44,7 @@ for subsets of our query.
 
 For example:
 Source = "ING's no Google"
+
 Query  = "ING"
 
 Output:
@@ -51,11 +52,14 @@ Output:
 --------------------------------------------------
 
 Length of your Query is 3...
+
 Thus 3 is the highest possible score
 
 --------------------------------------------------
 1: Line    1, score = 3
+
 ING's no Google
+
 ---
 2: Line    2, score = 0
 
