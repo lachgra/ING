@@ -17,7 +17,8 @@ It's no Google
 
     You can contact me via email:
     lachie.g.j@gmail.com
-
+    
+This program was written for COMP10002 (Unimelb) subject.
 
 This program, given a text file of arbitrary size,
 searches for the line which resembles the search term
