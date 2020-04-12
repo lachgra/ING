@@ -14,9 +14,6 @@ It's no Google
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-    You can contact me via email:
-    lachie.g.j@gmail.com
     
 This program was written for COMP10002 (Unimelb) subject.
 
