@@ -1,5 +1,4 @@
-# ING
-It's no Google
+# Search Term Ranker
 
     Copyright (C) 2016 Lachlan Grant
     This program is free software: you can redistribute it and/or modify
@@ -33,37 +32,10 @@ often will not be matched. This is the advantage that ING
 has over a binary "yes this is a match" or "no it is not" 
 algorithm.
 
-In short, ING will check all possible consecutive subsets of 
+In short, this program will check all possible consecutive subsets of 
 the lineagainst all possible subsets of our query. 
 
-My goal with ING is to implement more complexity to get_score(), 
+My goal with this program is to implement more complexity to get_score(), 
 allowing us to check a variable number of parts of the line 
 for subsets of our query.
-
-For example:
-Source = "ING's no Google"
-
-Query  = "ING"
-
-Output:
-
---------------------------------------------------
-
-Length of your Query is 3...
-
-Thus 3 is the highest possible score
-
---------------------------------------------------
-1: Line    1, score = 3
-
-ING's no Google
-
----
-2: Line    2, score = 0
-
----
-
---------------------------------------------------
-
-To do: More complexity.
 
