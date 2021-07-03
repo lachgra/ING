@@ -41,14 +41,14 @@ int get_score(char *query, char *text);
 
 
 int main(int argc, char **argv) {
-/*
+  /*
 	'char_index'  - current character index
 	'line_index'  - current line index
 	'score'   		 - score of the current line
 	'lines'       - array of the 10 line_t's currently available in memory
 	'rlength'     - the length of the lines array (retained length)
 	'c'           - the current character
-*/
+  */
 	int char_index, line_index;
 	int rlength;
 
