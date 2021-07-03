@@ -18,7 +18,7 @@ This program was written for COMP10002 (Unimelb) subject.
 
 This program, given a text file of arbitrary size,
 searches for the line which resembles the search term
-as closely as possible. ING will return a rank
+as closely as possible. It will return a rank
 of the lines in the text which achieved the highest level 
 of similarity.
 
@@ -28,7 +28,7 @@ correct characters a line has with respect to a query.
 However, the part of the line which matches the query
 could be a subset of the query, in fact it happens to be
 that even for large texts, queries of more than a few words
-often will not be matched. This is the advantage that ING
+often will not be matched. This is the advantage that this program
 has over a binary "yes this is a match" or "no it is not" 
 algorithm.
 
