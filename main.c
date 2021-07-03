@@ -15,12 +15,12 @@
 /* This program, given a text file of arbitrary size,
 *  searches for the line which resembles the search term
 *  as closely as possible. The program will return a rank
-*  of the lines in the text which achieved the highest level 
+*  of the lines in the text which achieved the highest level
 *  of similarity.
 *
 *  Resemblance is defined by the number of consecutively
-*	 correct characters a line has with respect to a query.
-*	 
+*  correct characters a line has with respect to a query.
+*
 */
 
 /* Definition of the line_t struct */
@@ -41,7 +41,8 @@ int get_score(char *query, char *text);
 
 
 int main(int argc, char **argv) {
-/*	'char_index'  - current character index
+/*
+	'char_index'  - current character index
 	'line_index'  - current line index
 	'score'   		 - score of the current line
 	'lines'       - array of the 10 line_t's currently available in memory
@@ -50,7 +51,7 @@ int main(int argc, char **argv) {
 */
 	int char_index, line_index;
 	int rlength;
-	
+
 	int score;
 	char c;
 	line_t lines[MAX_LINES];
@@ -66,8 +67,9 @@ int main(int argc, char **argv) {
 		char_index+=1;
 		if(c == '\n') {
 			line.text[char_index] = '\0';
-      
-			/* Calculate the score of a particular line
+
+			/*
+			Calculate the score of a particular line
 			If line longer than query, search line for query subsets
 			If query longer than line, search query for line subsets
 			*/
@@ -81,7 +83,7 @@ int main(int argc, char **argv) {
 			line.length = char_index;
 			line.line_index = line_index;
 			line.score = score;
-      
+
 			/* retain the value of line */
 			if(rlength == MAX_LINES) { /* full */
 				if(line.score > lines[rlength-1].score) {
@@ -89,7 +91,7 @@ int main(int argc, char **argv) {
 				}
 			} else { /* non full */
 				/* add the line to the next index */
-				lines[rlength] = line; 
+				lines[rlength] = line;
 				rlength += 1;
 			}
 			/* sort the lines */
@@ -99,12 +101,12 @@ int main(int argc, char **argv) {
 			char_index=0;
 		}
 	}
-  
+
 	print_border();
 	printf("\nLength of your Query is %d...\n", (int)strlen(argv[1]));
 	printf("Thus %d is the highest possible score\n", (int)strlen(argv[1]));
 	print_border();
-  
+
 	if(line_index > RANK_HEIGHT) {
 		print_scores(lines, line_index, RANK_HEIGHT);
 	} else {
@@ -140,7 +142,7 @@ void print_score_array(line_t lines[MAX_LINES], int length) {
 void print_scores(line_t *lines, int line_index, int guard) {
 	int i, j;
 	for(i=0; i<guard; i++) {
-		printf("%d: Line %4d, score = %d\n", i+1, lines[i].line_index+1, 
+		printf("%d: Line %4d, score = %d\n", i+1, lines[i].line_index+1,
 		lines[i].score);
 		for(j=0; j<lines[i].length; j++) {
 			printf("%c", lines[i].text[j]);
@@ -159,7 +161,7 @@ void swap(line_t *p1, line_t *p2) {
 }
 
 /* Sort the list of line_t's based on score
- * Insertion sort, adjusted for line_t's 
+ * Insertion sort, adjusted for line_t's
  */
 void sort_scores(line_t list[MAX_CHARS], int length) {
 	int i, j;
@@ -169,11 +171,12 @@ void sort_scores(line_t list[MAX_CHARS], int length) {
 		}
 	}
 }
-	
+
 /* Generate a score for a particular line and search query */
 int get_score(char *query, char *text) {
-	/* 'index'         - index being checked
-	'start'         - starting index in text 
+	/*
+	'index'         - index being checked
+	'start'         - starting index in text
 	'match_length'  - the length of the current pattern match
 	'longest_match' - the current highest pattern match length
 	*/
@@ -181,17 +184,17 @@ int get_score(char *query, char *text) {
 	start=0, match_length=0, longest_match=0;
 	int tlength = strlen(text);
 	int qlength = strlen(query);
-  
+
 	while(start < tlength-qlength+1) {
 		match_length=0;
-		for(index=0; index < qlength; index++) { 
-		  	
+		for(index=0; index < qlength; index++) {
+
 			if(*(text+start+index)==*(query+index)) {
 				match_length+=1;
 			} else {
 				match_length = 0;
 			}
-		    
+
 			if(match_length > longest_match) {
 				longest_match = match_length;
 			}
@@ -200,4 +203,3 @@ int get_score(char *query, char *text) {
 	}
 	return longest_match;
 }
-
