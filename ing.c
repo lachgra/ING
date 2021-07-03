@@ -14,7 +14,7 @@
 
 /* This program, given a text file of arbitrary size,
 *  searches for the line which resembles the search term
-*  as closely as possible. ING will return a rank
+*  as closely as possible. The program will return a rank
 *  of the lines in the text which achieved the highest level 
 *  of similarity.
 *
